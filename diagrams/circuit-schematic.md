@@ -12,7 +12,7 @@ all 3 rooms" below).
 1. Go to https://wokwi.com/projects/new/esp32 to start a new ESP32 project.
 2. Delete the default `diagram.json` contents and rebuild using the parts list
    below (search each part by name in Wokwi's part picker).
-3. Paste `firmware/main.ino` (included in this folder) into `sketch.ino`.
+3. Paste `diagrams/wokwi/main.ino` into Wokwi's `sketch.ino`.
 4. Click the green "Play" button — the LEDs simulate the lights, the DC motors
    (or a second LED pair) simulate the fans, and the Serial Monitor prints the
    sensed current draw, exactly like the values our backend simulator fakes.
@@ -79,7 +79,7 @@ Two realistic options, both compatible with the backend's `roomKey` field:
   local devices and reports to the backend with its `roomKey` in the payload
   (`{"roomKey":"work1","deviceId":"work1-fan-1","status":"on"}`). Simple,
   fault-isolated (one room's Wi-Fi hiccup doesn't affect the others).
-- **Option B — one ESP32 + I/O expander (e.g. MCP23017) for all 18 GPIOs:**
+- **Option B — one ESP32 + I/O expander (e.g. MCP23017) for all 15 device GPIOs:**
   cheaper hardware-wise, but a single point of failure for the whole office.
 
 ## Wokwi diagram source
