@@ -95,7 +95,7 @@ export default function App() {
 
 function IntroSequence({ onDone }) {
   useEffect(() => {
-    const timer = window.setTimeout(onDone, 2600);
+    const timer = window.setTimeout(onDone, 4000);
     return () => window.clearTimeout(timer);
   }, [onDone]);
 
@@ -247,9 +247,26 @@ function ActionRail({ highPowerRoom, maxWatts, allDevicesOff }) {
 
 function Footer() {
   return (
-    <footer className="pb-2 text-center text-xs font-semibold text-ink-500">
-      Current Bachaao - live office energy monitor powered by one shared backend.
-    </footer>
+<footer className="pb-2">
+  <div className="rounded-[22px] bg-white/58 px-5 py-4 shadow-[0_14px_34px_rgba(66,82,73,0.07)] ring-1 ring-white/70">
+    <div className="flex flex-col items-center justify-center gap-3 text-center">
+      <div>
+        <p className="font-display text-sm font-black text-ink-900">
+          Current Bachaao
+        </p>
+        <p className="mt-1 text-xs font-semibold text-ink-500">
+          One backend powering the dashboard, live alerts, and the Discord bot.
+        </p>
+      </div>
+
+      <div className="flex justify-center">
+        <span className="rounded-full bg-leaf-soft px-3 py-1 text-[11px] font-bold text-leaf-dark">
+          © 2026 First Timers. All rights reserved.
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>
   );
 }
 
