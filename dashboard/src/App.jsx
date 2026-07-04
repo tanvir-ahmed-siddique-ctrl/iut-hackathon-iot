@@ -45,7 +45,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen px-3 py-4 sm:px-5 lg:px-7 lg:py-7">
-      <main className={`mx-auto w-full max-w-[1680px] space-y-7 ${introDone ? "dashboard-enter" : "opacity-0"}`}>
+      <main className="mx-auto w-full max-w-[1680px] space-y-7">
         <section className="soft-card rounded-[28px] p-4 sm:p-6 lg:p-8">
           <OfficeViewHeader connected={connected} />
           <div className="mt-6 overflow-hidden rounded-[24px] bg-white/35 p-2 sm:p-3">
@@ -95,7 +95,7 @@ export default function App() {
 
 function IntroSequence({ onDone }) {
   useEffect(() => {
-    const timer = window.setTimeout(onDone, 3000);
+    const timer = window.setTimeout(onDone, 2600);
     return () => window.clearTimeout(timer);
   }, [onDone]);
 
@@ -225,18 +225,11 @@ function ActionRail({ highPowerRoom, maxWatts, allDevicesOff }) {
         </div>
       </div>
 
-      <button
-        type="button"
-        onClick={() => {}}
-        className={`boss-switch group text-left ${allDevicesOff ? "boss-switch-off" : ""}`}
-        aria-label="Boss master switch preview. Use Discord lockdown command to operate."
-      >
-        <span className="boss-switch-track">
-          <span className="boss-switch-knob">
-            <span className="boss-switch-notch" />
-          </span>
+      <div className={`boss-lock-card ${allDevicesOff ? "boss-lock-card-off" : ""}`}>
+        <span className="boss-lock-icon" aria-hidden="true">
+          {allDevicesOff ? "OFF" : "!"}
         </span>
-        <span className="min-w-0">
+        <span className="min-w-0 relative z-10">
           <span className="block text-xs font-display font-black uppercase tracking-[0.2em] opacity-75">
             Boss Control
           </span>
@@ -247,7 +240,7 @@ function ActionRail({ highPowerRoom, maxWatts, allDevicesOff }) {
             Shutdown works from Discord only: <span className="font-mono">!lockdown</span>.
           </span>
         </span>
-      </button>
+      </div>
     </section>
   );
 }
