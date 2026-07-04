@@ -63,6 +63,17 @@ body {
   pointer-events: none;
 }
 
+.device-hotspot {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.device-hotspot:focus,
+.device-hotspot:focus-visible,
+.device-hotspot *:focus {
+  outline: none;
+}
+
 .device-hotspot:hover .device-tooltip,
 .device-hotspot:focus .device-tooltip {
   opacity: 1;
