@@ -1,6 +1,6 @@
 # Current Bachaao - Office Energy Monitor
 
-Current Bachaao is a hackathon-ready office energy monitoring system for the
+Current Bachaao is a monitoring system for the
 "Lights, Fans, Discord: The Boss's Big Idea" brief. It simulates a small office,
 streams live device state to a polished web dashboard, and exposes the same
 truth to a Discord bot.

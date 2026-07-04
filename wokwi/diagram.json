@@ -1,0 +1,75 @@
+{
+    "version": 1,
+    "author": "office-monitor-project",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+  
+      { "type": "wokwi-resistor", "id": "r_light1", "top": -140, "left": 260, "attrs": { "value": "220" } },
+      { "type": "wokwi-led", "id": "light1", "top": -170, "left": 290, "attrs": { "color": "yellow", "label": "Light 1" } },
+      { "type": "wokwi-pushbutton", "id": "btn_light1", "top": -140, "left": 380, "attrs": { "color": "yellow" } },
+  
+      { "type": "wokwi-resistor", "id": "r_light2", "top": -90, "left": 260, "attrs": { "value": "220" } },
+      { "type": "wokwi-led", "id": "light2", "top": -120, "left": 290, "attrs": { "color": "yellow", "label": "Light 2" } },
+      { "type": "wokwi-pushbutton", "id": "btn_light2", "top": -90, "left": 380, "attrs": { "color": "yellow" } },
+  
+      { "type": "wokwi-resistor", "id": "r_light3", "top": -40, "left": 260, "attrs": { "value": "220" } },
+      { "type": "wokwi-led", "id": "light3", "top": -70, "left": 290, "attrs": { "color": "yellow", "label": "Light 3" } },
+      { "type": "wokwi-pushbutton", "id": "btn_light3", "top": -40, "left": 380, "attrs": { "color": "yellow" } },
+  
+      { "type": "wokwi-resistor", "id": "r_fan1", "top": 10, "left": 260, "attrs": { "value": "220" } },
+      { "type": "wokwi-led", "id": "fan1", "top": -20, "left": 290, "attrs": { "color": "cyan", "label": "Fan 1" } },
+      { "type": "wokwi-pushbutton", "id": "btn_fan1", "top": 10, "left": 380, "attrs": { "color": "blue" } },
+  
+      { "type": "wokwi-resistor", "id": "r_fan2", "top": 60, "left": 260, "attrs": { "value": "220" } },
+      { "type": "wokwi-led", "id": "fan2", "top": 30, "left": 290, "attrs": { "color": "cyan", "label": "Fan 2" } },
+      { "type": "wokwi-pushbutton", "id": "btn_fan2", "top": 60, "left": 380, "attrs": { "color": "blue" } },
+  
+      { "type": "wokwi-potentiometer", "id": "acs712_stand_in", "top": 150, "left": 40, "attrs": { "label": "ACS712 current sensor (analog stand-in)" } },
+  
+      { "type": "wokwi-relay-module", "id": "relay_master", "top": -60, "left": 480, "attrs": {} },
+      { "type": "wokwi-pushbutton", "id": "btn_master_kill", "top": 40, "left": 480, "attrs": { "color": "red" } }
+    ],
+    "connections": [
+      [ "esp:D16", "r_light1:1", "black", [] ],
+      [ "r_light1:2", "light1:A", "black", [] ],
+      [ "light1:C", "relay_master:COM", "black", [] ],
+      [ "esp:D4", "btn_light1:1.l", "green", [] ],
+      [ "btn_light1:2.r", "esp:GND.1", "black", [] ],
+  
+      [ "esp:D17", "r_light2:1", "black", [] ],
+      [ "r_light2:2", "light2:A", "black", [] ],
+      [ "light2:C", "relay_master:COM", "black", [] ],
+      [ "esp:D5", "btn_light2:1.l", "green", [] ],
+      [ "btn_light2:2.r", "esp:GND.1", "black", [] ],
+  
+      [ "esp:D18", "r_light3:1", "black", [] ],
+      [ "r_light3:2", "light3:A", "black", [] ],
+      [ "light3:C", "relay_master:COM", "black", [] ],
+      [ "esp:D13", "btn_light3:1.l", "green", [] ],
+      [ "btn_light3:2.r", "esp:GND.1", "black", [] ],
+  
+      [ "esp:D19", "r_fan1:1", "black", [] ],
+      [ "r_fan1:2", "fan1:A", "black", [] ],
+      [ "fan1:C", "relay_master:COM", "black", [] ],
+      [ "esp:D14", "btn_fan1:1.l", "green", [] ],
+      [ "btn_fan1:2.r", "esp:GND.1", "black", [] ],
+  
+      [ "esp:D21", "r_fan2:1", "black", [] ],
+      [ "r_fan2:2", "fan2:A", "black", [] ],
+      [ "fan2:C", "relay_master:COM", "black", [] ],
+      [ "esp:D27", "btn_fan2:1.l", "green", [] ],
+      [ "btn_fan2:2.r", "esp:GND.1", "black", [] ],
+  
+      [ "esp:D34", "acs712_stand_in:SIG", "green", [] ],
+      [ "acs712_stand_in:VCC", "esp:3V3", "red", [] ],
+      [ "acs712_stand_in:GND", "esp:GND.2", "black", [] ],
+  
+      [ "relay_master:NO", "esp:GND.1", "black", [] ],
+      [ "relay_master:VCC", "esp:VIN", "red", [] ],
+      [ "relay_master:GND", "esp:GND.2", "black", [] ],
+      [ "esp:D26", "relay_master:IN", "green", [] ],
+      [ "esp:D25", "btn_master_kill:1.l", "green", [] ],
+      [ "btn_master_kill:2.r", "esp:GND.2", "black", [] ]
+    ]
+  }
