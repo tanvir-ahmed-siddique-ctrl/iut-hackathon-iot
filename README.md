@@ -113,14 +113,10 @@ http://localhost:5173
 
 ## Diagrams And Hardware Concept
 
-Required deliverables are included:
+<img width="1740" height="603" alt="system_diagram" src="https://github.com/user-attachments/assets/8ed427ed-3f0a-4f8a-85f9-5e409e6db8bf" />
 
-- `diagrams/system-diagram.svg`
-  - high-level flow from simulated devices to backend, dashboard, and Discord.
-- `diagrams/circuit-schematic.md`
-  - representative ESP32/Arduino-style wiring concept for one room.
-- `diagrams/wokwi/`
-  - Wokwi simulation files for the hardware concept.
+<img width="1600" height="969" alt="hardware_simulation" src="https://github.com/user-attachments/assets/b95dfd67-e9ce-44fa-9662-3b9945847f1e" />
+
 
 ## Testing And Verification
 
